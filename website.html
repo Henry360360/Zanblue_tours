@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueMoon Adventure - Zanzibar Tour Operator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --secondary: #ff6b00;
+            --accent: #34a853;
+            --dark: #202124;
+            --light: #f8f9fa;
+            --gray: #5f6368;
+            --sand: #f5f1e6;
+            --ocean: #0077be;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* Page container for multi-page setup */
+        .page {
+            display: none;
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1566552881560-0be862a7c445?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+            border-radius: 10px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .hero-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e55f00;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        /* Rating Section */
+        .rating {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 10px;
+        }
+        
+        .stars {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ffc107;
+        }
+        
+        .social-icons {
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Tours Grid */
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .tour-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .tour-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .tour-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .tour-content {
+            padding: 20px;
+        }
+        
+        .tour-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .tour-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .tour-price {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Booking Form */
+        .booking-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        /* Pricing Tables */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-table th, .pricing-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pricing-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pricing-table tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 15px;
+            background: #f9f9f9;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .faq-answer {
+            padding: 15px;
+            background: white;
+            display: none;
+        }
+        
+        .faq-active .faq-answer {
+            display: block;
+        }
+        
+        /* Hotel Cards */
+        .hotel-card {
+            display: flex;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hotel-image {
+            width: 40%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hotel-details {
+            padding: 20px;
+            width: 60%;
+        }
+        
+        /* WhatsApp Chat */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+        
+        .whatsapp-chat:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #ddd;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .hotel-card {
+                flex-direction: column;
+            }
+            
+            .hotel-image, .hotel-details {
+                width: 100%;
+            }
+            
+            .hotel-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Bluemoon Adventure</h1>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul>
+                    <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="tours">Tours</a></li>
+                    <li><a href="#" class="nav-link" data-page="packages">Packages</a></li>
+                    <li><a href="#" class="nav-link" data-page="hotels">Hotels</a></li>
+                    <li><a href="#" class="nav-link" data-page="safaris">Safaris</a></li>
+                    <li><a href="#" class="nav-link" data-page="booking">Booking</a></li>
+                    <li><a href="#" class="nav-link" data-page="faq">FAQ</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <h2>Explore Zanzibar with us!</h2>
+                    <p>Start your journey here!</p>
+                    <a href="#" class="btn" data-page="booking">Book Now</a>
+                </div>
+            </div>
+
+            <div class="rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>5/5 - 5-Star Rated Zanzibar Tour Operator!</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <section class="section">
+                <div class="section-title">
+                    <h2>DISCOVER ZANZIBAR: AFRICA'S TROPICAL PARADISE</h2>
+                    <p>Zanzibar is a unique tropical island destination that has become world-renowned for its exceptional tourist activities and natural beauty. This spice island offers an unparalleled combination of pristine beaches, exceptional diving and snorkeling spots, and exciting activities including Horse Riding, Quad Biking, Sky Diving, and SUP (Stand-Up Paddleboarding).</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-title">
+                    <h2>HALF-DAY ZANZIBAR TOURS & ACTIVITIES</h2>
+                    <p>Explore the best of Zanzibar with our curated selection of half-day tours</p>
+                </div>
+                <div class="tours-grid">
+                    <div class="tour-card">
+                        <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1580548254596-487c3dc48a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="tour-content">
+                            <h3>Stone Town Walking Tour</h3>
+                            <p>Explore the historical heart of Zanzibar with our guided walking tour.</p>
+                            <div class="tour-price">$15 per person</div>
+                            <a href="#" class="btn" data-page="booking">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="tour-card">
+                        <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1596120236170-2e5f01420ad2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="tour-content">
+                            <h3>Prison Island Trip</h3>
+                            <p>Visit the historic Prison Island and meet the giant Aldabra tortoises.</p>
+                            <div class="tour-price">$20 per person</div>
+                            <a href="#" class="btn" data-page="booking">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="tour-card">
+                        <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1587334274527-ba54f0b5a357?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="tour-content">
+                            <h3>Spice Farm Tour</h3>
+                            <p>Discover why Zanzibar is called the Spice Island with this sensory journey.</p>
+                            <div class="tour-price">$13 per person</div>
+                            <a href="#" class="btn" data-page="booking">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Tours Page -->
+    <div id="tours" class="page">
+        <div class="container">
+            <section class="section">
+                <div class="section-title">
+                    <h2>ZANZIBAR TOURS & ACTIVITIES</h2>
+                    <p>Explore our wide range of tours and activities in Zanzibar</p>
+                </div>
+
+                <h3>Half-Day Tours</h3>
+                <table class="pricing-table">
+                    <tr>
+                        <th>Tour</th>
+                        <th>Duration</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>Historical Stone Town Walking Tour</td>
+                        <td>4 hours</td>
+                        <td>$15</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Prison Island/Changuu Island Tour</td>
+                        <td>4 hours</td>
+                        <td>$20</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Village Spice Farm Tour</td>
+                        <td>3 hours</td>
+                        <td>$13</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Nakupenda Sandbank Tour</td>
+                        <td>5 hours</td>
+                        <td>$45</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Jozani Forest Walking Tour</td>
+                        <td>4 hours</td>
+                        <td>$18</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Traditional Sunset Dhow Cruise</td>
+                        <td>3 hours</td>
+                        <td>$25</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Kizimkazi Dolphins Tour</td>
+                        <td>4 hours</td>
+                        <td>$25</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                </table>
+
+                <h3>Full-Day Tours</h3>
+                <table class="pricing-table">
+                    <tr>
+                        <th>Tour</th>
+                        <th>Duration</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>Safari Blue Trip</td>
+                        <td>8 hours</td>
+                        <td>$40</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Spice Farm, Prison Island & Stone Town</td>
+                        <td>8 hours</td>
+                        <td>$35</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Jozani Forest, Spice Farm & Stone Town</td>
+                        <td>8 hours</td>
+                        <td>$35</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Jozani Forest, Spice Farm & Prison Island</td>
+                        <td>9 hours</td>
+                        <td>$39</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Prison Island & Nakupenda Sandbank</td>
+                        <td>8 hours</td>
+                        <td>$30</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Traditional Cooking Class & Local Market</td>
+                        <td>7 hours</td>
+                        <td>$30</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Zanzibar Kayaking Adventures</td>
+                        <td>8 hours</td>
+                        <td>$40</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <!-- Packages Page -->
+    <div id="packages" class="page">
+        <div class="container">
+            <section class="section">
+                <div class="section-title">
+                    <h2>ZANZIBAR VACATION PACKAGES</h2>
+                    <p>All-inclusive packages tailored to your interests</p>
+                </div>
+
+                <h3>Multi-Day Zanzibar Tour Packages</h3>
+                <table class="pricing-table">
+                    <tr>
+                        <th>Package</th>
+                        <th>Duration</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>2 Day Tours Package</td>
+                        <td>2 days</td>
+                        <td>$75</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>3 Day Tours Package</td>
+                        <td>3 days</td>
+                        <td>$215</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>4 Day Tours Package</td>
+                        <td>4 days</td>
+                        <td>$265</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>5 Day Tours Package</td>
+                        <td>5 days</td>
+                        <td>$315</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>6 Day Tours Package</td>
+                        <td>6 days</td>
+                        <td>$265</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>7 Day Tours Package</td>
+                        <td>7 days</td>
+                        <td>$415</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>8 Day Tours Package</td>
+                        <td>8 days</td>
+                        <td>$565</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>9 Day Tours Package</td>
+                        <td>9 days</td>
+                        <td>$515</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>10 Day Tours Package</td>
+                        <td>10 days</td>
+                        <td>$565</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                </table>
+
+                <div class="section-title">
+                    <h2>ALL-INCLUSIVE ZANZIBAR VACATION PACKAGE!</h2>
+                    <p>Neptune Pwani Beach Resort & Spa</p>
+                </div>
+
+                <div class="booking-form">
+                    <h3>Plan Your Zanzibar Vacation Tailored to Your Interests!</h3>
+                    <p>Design your dream trip to Zanzibar with the help of our local experts! Whether you're seeking adventure, relaxation, cultural experiences, or a mix of everything, we'll help you create a personalized vacation package that matches your interests and travel style.</p>
+                    <p style="text-align: center; margin-top: 20px;">
+                        <a href="#" class="btn" data-page="booking">Help Me Plan My Tours</a>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Hotels Page -->
+    <div id="hotels" class="page">
+        <div class="container">
+            <section class="section">
+                <div class="section-title">
+                    <h2>TOP ZANZIBAR HOTELS FOR YOUR HOLIDAY</h2>
+                    <p>Choose from our selection of premium accommodations</p>
+                </div>
+
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="hotel-details">
+                        <h3>Royal Zanzibar Beach Resort</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Nungwi, Seafront</p>
+                        <p>Luxury beachfront resort with spa, multiple pools, and exquisite dining options.</p>
+                        <a href="#" class="btn" data-page="booking">Check Availability</a>
+                    </div>
+                </div>
+
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="hotel-details">
+                        <h3>Smiles Beach Hotel</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Nungwi, Seafront</p>
+                        <p>Beautiful seafront property with friendly staff and direct beach access.</p>
+                        <a href="#" class="btn" data-page="booking">Check Availability</a>
+                    </div>
+                </div>
+
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="hotel-details">
+                        <h3>White Sands</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Paje, Seafront</p>
+                        <p>Beachfront hotel known for its water sports facilities and beautiful gardens.</p>
+                        <a href="#" class="btn" data-page="booking">Check Availability</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Safaris Page -->
+    <div id="safaris" class="page">
+        <div class="container">
+            <section class="section">
+                <div class="section-title">
+                    <h2>SAFARI DAY TRIPS FROM ZANZIBAR</h2>
+                    <p>Experience the best of Tanzania's wildlife</p>
+                </div>
+
+                <h3>Day Trip Safaris</h3>
+                <table class="pricing-table">
+                    <tr>
+                        <th>Safari</th>
+                        <th>Duration</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>Mikumi Day Trip Safari From Zanzibar</td>
+                        <td>1 day</td>
+                        <td>$475</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Selous Day Trip Safari From Zanzibar</td>
+                        <td>1 day</td>
+                        <td>$475</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                </table>
+
+                <h3>Multi-Day Safaris</h3>
+                <table class="pricing-table">
+                    <tr>
+                        <th>Safari</th>
+                        <th>Duration</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>2 Days 1 Night Mikumi Safari</td>
+                        <td>2 days</td>
+                        <td>$895</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>2 Days 1 Night Selous Safari</td>
+                        <td>2 days</td>
+                        <td>$920</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>2 Days 1 Night Serengeti Safari</td>
+                        <td>2 days</td>
+                        <td>$1676</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>3 Days 2 Nights Serengeti Safari</td>
+                        <td>3 days</td>
+                        <td>$2048</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>3 Days 2 Nights Serengeti & Balloon Safari</td>
+                        <td>3 days</td>
+                        <td>$2793</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                </table>
+
+                <h3>Tanzania Safari Packages</h3>
+                <table class="pricing-table">
+                    <tr>
+                        <th>Package</th>
+                        <th>Duration</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>4 Days 3 Night Tanzania Safari Package</td>
+                        <td>4 days</td>
+                        <td>$1550</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>5 Days 4 Nights Tanzania Safari Package</td>
+                        <td>5 days</td>
+                        <td>$1770</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>6 Days 5 Nights Tanzania Safari Package</td>
+                        <td>6 days</td>
+                        <td>$2040</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>7 Days 6 Nights Tanzania Safari Package</td>
+                        <td>7 days</td>
+                        <td>$2480</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>7 Days 6 Nights Tanzania Safari & Zanzibar</td>
+                        <td>7 days</td>
+                        <td>$1750</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>8 Days 7 Nights Tanzania Safari Package</td>
+                        <td>8 days</td>
+                        <td>$2600</td>
+                        <td><a href="#" class="btn" data-page="booking">Book Now</a></td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <!-- Booking Page -->
+    <div id="booking" class="page">
+        <div class="container">
+            <section class="section">
+                <div class="section-title">
+                    <h2>BOOK YOUR ZANZIBAR ADVENTURE</h2>
+                    <p>Fill out the form below to book your tour or request more information</p>
+                </div>
+                <div class="booking-form">
+                    <form id="bookingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tour-type">Tour Type</label>
+                                <select id="tour-type" required>
+                                    <option value="">Select tour type</option>
+                                    <option value="half-day">Half-Day Tour</option>
+                                    <option value="full-day">Full-Day Tour</option>
+                                    <option value="multi-day">Multi-Day Package</option>
+                                    <option value="safari">Safari</option>
+                                    <option value="hotel">Hotel Booking</option>
+                                    <option value="custom">Custom Package</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="tour">Select Specific Tour</label>
+                                <select id="tour">
+                                    <option value="">Select a tour (optional)</option>
+                                    <option value="stone_town">Stone Town Walking Tour - $15</option>
+                                    <option value="prison_island">Prison Island Trip - $20</option>
+                                    <option value="spice_farm">Spice Farm Tour - $13</option>
+                                    <option value="safari_blue">Safari Blue Trip - $40</option>
+                                    <option value="dolphin_tour">Kizimkazi Dolphins Tour - $25</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="guests">Number of Guests</label>
+                                <input type="number" id="guests" min="1" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Preferred Date</label>
+                                <input type="date" id="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="duration">Duration (days)</label>
+                                <input type="number" id="duration" min="1" value="1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Special Requests</label>
+                            <textarea id="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Booking Request</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- FAQ Page -->
+    <div id="faq" class="page">
+        <div class="container">
+            <section class="section">
+                <div class="section-title">
+                    <h2>FREQUENTLY ASKED QUESTIONS</h2>
+                    <p>Find answers to common questions about Zanzibar tours</p>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What are the best tours in Zanzibar?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            The most popular tours in Zanzibar include Stone Town walking tours, Prison Island visits, spice farm tours, Safari Blue trips, and dolphin watching in Kizimkazi. The best tour for you depends on your interests - whether you prefer cultural experiences, nature, water activities, or relaxation.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Do I need a Covid-19 test for Zanzibar tours?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Covid-19 requirements change frequently. Currently, Zanzibar does not require vaccination proof or testing for entry, but we recommend checking the latest travel guidelines from official sources before your trip. We stay updated on all requirements and will inform you of any necessary preparations.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I cancel my day tour?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, you can cancel your tour. Our cancellation policy allows for full refunds if cancelled at least 48 hours before the tour date. Cancellations within 24-48 hours receive a 50% refund, while cancellations within 24 hours are non-refundable. Some special tours may have different policies which will be communicated at the time of booking.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How do I make payment?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            We accept multiple payment methods including credit cards (Visa, MasterCard), bank transfers, and mobile money. For tour bookings, we require a 30% deposit to secure your reservation, with the balance payable upon arrival or before the tour begins depending on the package.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What's included in your tours?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Our tours typically include transportation, professional guide services, entrance fees to attractions, and sometimes meals as specified in the tour description. Water and refreshments are usually provided. Specific inclusions vary by tour, so please check the detailed description of each tour for exact information.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="container">
+            <section class="section">
+                <div class="section-title">
+                    <h2>CONTACT US</h2>
+                    <p>Get in touch with us for any questions or special requests</p>
+                </div>
+
+                <div class="booking-form">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Full Name</label>
+                                <input type="text" id="contact-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-phone">Phone Number</label>
+                                <input type="tel" id="contact-phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" required>
+                                    <option value="">Select subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="booking">Booking Question</option>
+                                    <option value="custom">Custom Tour Request</option>
+                                    <option value="complaint">Complaint</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="section-title" style="margin-top: 60px;">
+                    <h2>FOLLOW US ON SOCIAL MEDIA</h2>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- WhatsApp Chat -->
+    <a href="https://wa.me/255777123456?text=Hello%20Bluemoon%20Adventure,%20I'd%20like%20to%20inquire%20about%20tours" class="whatsapp-chat" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Bluemoon Adventure</h3>
+                    <p>Your premier tour operator in Zanzibar, offering unforgettable experiences and exceptional service.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Stone Town, Zanzibar</li>
+                        <li><i class="fas fa-phone"></i> +255 777 123 456</li>
+                        <li><i class="fas fa-envelope"></i> info@bluemoonadventure.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="tours">Tours</a></li>
+                        <li><a href="#" class="nav-link" data-page="packages">Packages</a></li>
+                        <li><a href="#" class="nav-link" data-page="booking">Booking</a></li>
+                        <li><a href="#" class="nav-link" data-page="faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Subscribe to Newsletter</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your email address" required>
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Bluemoon Adventure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Multi-page navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = link.getAttribute('data-page');
+                
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show target page
+                document.getElementById(targetPage).classList.add('active');
+                
+                // Close mobile menu if open
+                navMenu.classList.remove('show');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+        
+        // Booking Form Submission
+        const bookingForm = document.getElementById('bookingForm');
+        
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const tourType = document.getElementById('tour-type').value;
+            const tour = document.getElementById('tour').value ? 
+                document.getElementById('tour').options[document.getElementById('tour').selectedIndex].text : 
+                'Not specified';
+            const guests = document.getElementById('guests').value;
+            const date = document.getElementById('date').value;
+            
+            // Create WhatsApp message
+            const message = `Hello Bluemoon Adventure!%0A%0AI would like to book a tour:%0A%0AName: ${name}%0AEmail: ${email}%0ATour Type: ${tourType}%0ATour: ${tour}%0AGuests: ${guests}%0ADate: ${date}%0A%0APlease provide more details.`;
+            
+            // Open WhatsApp with pre-filled message
+            window.open(`https://wa.me/255777123456?text=${message}`, '_blank');
+            
+            // Reset form
+            bookingForm.reset();
+            
+            // Show confirmation message
+            alert('Thank you for your booking request! We have opened WhatsApp for you to complete your booking.');
+        });
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const subject = document.getElementById('subject').options[document.getElementById('subject').selectedIndex].text;
+            const message = document.getElementById('contact-message').value;
+            
+            // Create WhatsApp message
+            const whatsappMessage = `Hello Bluemoon Adventure!%0A%0AContact Inquiry:%0A%0AName: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}%0A%0APlease respond at your earliest convenience.`;
+            
+            // Open WhatsApp with pre-filled message
+            window.open(`https://wa.me/255777123456?text=${whatsappMessage}`, '_blank');
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Show confirmation message
+            alert('Thank you for your message! We have opened WhatsApp for you to send your inquiry.');
+        });
+        
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('faq-active');
+            });
+        });
+    </script>
+</body>
+</html>
