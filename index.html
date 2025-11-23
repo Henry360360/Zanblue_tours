@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zanblue Adventure - Premium Zanzibar Tours</title>
+    <meta name="description" content="Zanblue Adventure - Premium Zanzibar tours, safaris, and vacation packages. Experience the best of Tanzania with expert guides.">
+    <meta name="keywords" content="Zanzibar tours, Tanzania safaris, Zanzibar hotels, Stone Town, Prison Island, Spice Farm">
+    <meta property="og:title" content="Zanblue Adventure - Premium Zanzibar Tours">
+    <meta property="og:description" content="Experience Zanzibar's magic with our expert guides. Book tours, safaris, and vacation packages.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1566552881560-0be862a7c445?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -120,6 +126,50 @@
             border: none;
             cursor: pointer;
             color: var(--dark);
+        }
+        
+        /* Search and Language Selector */
+        .header-utils {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-container input {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            width: 200px;
+            transition: all 0.3s;
+        }
+        
+        .search-container input:focus {
+            outline: none;
+            border-color: var(--primary);
+            width: 250px;
+        }
+        
+        .search-container button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+        }
+        
+        .language-selector select {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
         }
         
         /* Page container for multi-page setup */
@@ -526,6 +576,21 @@
             gap: 20px;
         }
         
+        /* Form Steps */
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+        }
+        
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
         /* Pricing Tables */
         .pricing-table {
             width: 100%;
@@ -782,6 +847,7 @@
             position: relative;
             z-index: 2;
             flex: 1;
+            cursor: pointer;
         }
         
         .step-icon {
@@ -995,6 +1061,35 @@
             color: #ddd;
         }
         
+        /* Search Results */
+        .search-results {
+            display: none;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .search-results.active {
+            display: block;
+        }
+        
+        .search-result-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .search-result-item:hover {
+            background: #f9f9f9;
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header-container {
@@ -1024,6 +1119,10 @@
             
             .mobile-menu-btn {
                 display: block;
+            }
+            
+            .header-utils {
+                display: none;
             }
             
             .hero-content h2 {
@@ -1092,6 +1191,20 @@
                 </div>
                 <h1>Zanblue Adventure</h1>
             </div>
+            <div class="header-utils">
+                <div class="search-container">
+                    <input type="text" placeholder="Search tours..." id="searchInput">
+                    <button><i class="fas fa-search"></i></button>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+                <div class="language-selector">
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="sw">Swahili</option>
+                        <option value="fr">French</option>
+                    </select>
+                </div>
+            </div>
             <nav>
                 <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -1149,14 +1262,9 @@
             <section class="process-section" data-aos="fade-up">
                 <div class="container process-container">
                     <div class="process-image" data-aos="zoom-in">
-                        <!-- Replace with your actual image path -->
-                        <img src="GJCS0514.JPG" alt="Zanblue Adventure Process" onerror="this.style.display='none'">
-                        <!-- Fallback content if image doesn't load -->
-                        <div style="background: var(--secondary); color: white; padding: 60px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 300px;">
-                            <i class="fas fa-cogs" style="font-size: 4rem; margin-bottom: 20px;"></i>
-                            <h3>Our Premium Process</h3>
-                            <p>Experience the Zanblue difference with our carefully crafted tour processes</p>
-                        </div>
+                        <!-- Fixed image with fallback -->
+                        <img src="GJCS0514.JPG" alt="Zanblue Adventure Process" 
+                             onerror="this.src='https://images.unsplash.com/photo-1566552881560-0be862a7c445?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
                     </div>
                     <div class="process-content" data-aos="fade-left">
                         <h2>Our Premium Process</h2>
@@ -1195,7 +1303,7 @@
                 </div>
                 <div class="tours-grid">
                     <div class="tour-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1580548254596-487c3dc48a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="tour-img lazy-load" data-src="https://images.unsplash.com/photo-1580548254596-487c3dc48a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"></div>
                         <div class="tour-content">
                             <h3>Stone Town Walking Tour</h3>
                             <p>Explore the historical heart of Zanzibar with our guided walking tour through UNESCO World Heritage sites.</p>
@@ -1204,7 +1312,7 @@
                         </div>
                     </div>
                     <div class="tour-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1596120236170-2e5f01420ad2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="tour-img lazy-load" data-src="https://images.unsplash.com/photo-1596120236170-2e5f01420ad2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"></div>
                         <div class="tour-content">
                             <h3>Prison Island Trip</h3>
                             <p>Visit the historic Prison Island and meet the giant Aldabra tortoises in their natural habitat.</p>
@@ -1213,7 +1321,7 @@
                         </div>
                     </div>
                     <div class="tour-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1587334274527-ba54f0b5a357?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="tour-img lazy-load" data-src="https://images.unsplash.com/photo-1587334274527-ba54f0b5a357?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"></div>
                         <div class="tour-content">
                             <h3>Spice Farm Tour</h3>
                             <p>Discover why Zanzibar is called the Spice Island with this sensory journey through aromatic plantations.</p>
@@ -1491,7 +1599,7 @@
                 </div>
 
                 <div class="hotel-card" data-aos="fade-up">
-                    <div class="hotel-image" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="hotel-image lazy-load" data-src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
                     <div class="hotel-details">
                         <h3>Royal Zanzibar Beach Resort</h3>
                         <p><i class="fas fa-map-marker-alt"></i> Nungwi, Seafront</p>
@@ -1501,7 +1609,7 @@
                 </div>
 
                 <div class="hotel-card" data-aos="fade-up">
-                    <div class="hotel-image" style="background-image: url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="hotel-image lazy-load" data-src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
                     <div class="hotel-details">
                         <h3>Smiles Beach Hotel</h3>
                         <p><i class="fas fa-map-marker-alt"></i> Nungwi, Seafront</p>
@@ -1511,7 +1619,7 @@
                 </div>
 
                 <div class="hotel-card" data-aos="fade-up">
-                    <div class="hotel-image" style="background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="hotel-image lazy-load" data-src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
                     <div class="hotel-details">
                         <h3>White Sands</h3>
                         <p><i class="fas fa-map-marker-alt"></i> Paje, Seafront</p>
@@ -1547,7 +1655,7 @@
                     <div class="safari-cards">
                         <div class="safari-card" data-aos="fade-up" data-aos-delay="100">
                             <div class="safari-card-badge">Most Popular</div>
-                            <div class="safari-img" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="safari-img lazy-load" data-src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"></div>
                             <div class="safari-content">
                                 <h3>Mikumi National Park Day Trip</h3>
                                 <p>Experience the "mini-Serengeti" with its abundant wildlife including lions, elephants, giraffes, and zebras.</p>
@@ -1562,7 +1670,7 @@
                         </div>
                         
                         <div class="safari-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="safari-img" style="background-image: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="safari-img lazy-load" data-src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"></div>
                             <div class="safari-content">
                                 <h3>Selous Game Reserve Day Trip</h3>
                                 <p>Explore Africa's largest game reserve with boat safaris and incredible diversity of wildlife.</p>
@@ -1608,7 +1716,7 @@
                     <div class="safari-cards">
                         <div class="safari-card" data-aos="fade-up" data-aos-delay="100">
                             <div class="safari-card-badge">Best Value</div>
-                            <div class="safari-img" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="safari-img lazy-load" data-src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"></div>
                             <div class="safari-content">
                                 <h3>2 Days / 1 Night Mikumi Safari</h3>
                                 <p>Extended safari experience with overnight stay in the heart of Mikumi National Park.</p>
@@ -1623,7 +1731,7 @@
                         </div>
                         
                         <div class="safari-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="safari-img" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="safari-img lazy-load" data-src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"></div>
                             <div class="safari-content">
                                 <h3>2 Days / 1 Night Selous Safari</h3>
                                 <p>Boat safaris, walking safaris and game drives in Africa's largest game reserve.</p>
@@ -1681,7 +1789,7 @@
                     <div class="safari-cards">
                         <div class="safari-card" data-aos="fade-up" data-aos-delay="100">
                             <div class="safari-card-badge">Popular</div>
-                            <div class="safari-img" style="background-image: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="safari-img lazy-load" data-src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"></div>
                             <div class="safari-content">
                                 <h3>4 Days / 3 Nights Tanzania Safari</h3>
                                 <p>Explore multiple parks including Serengeti and Ngorongoro Crater on this classic safari.</p>
@@ -1696,7 +1804,7 @@
                         </div>
                         
                         <div class="safari-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="safari-img" style="background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="safari-img lazy-load" data-src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"></div>
                             <div class="safari-content">
                                 <h3>5 Days / 4 Nights Tanzania Safari</h3>
                                 <p>Extended safari covering Serengeti, Ngorongoro, and Tarangire National Parks.</p>
@@ -1822,28 +1930,28 @@
                 </div>
                 
                 <div class="booking-steps" data-aos="fade-up">
-                    <div class="step active">
+                    <div class="step active" data-step="1">
                         <div class="step-icon">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>Your Details</h4>
                         <p>Provide contact information</p>
                     </div>
-                    <div class="step">
+                    <div class="step" data-step="2">
                         <div class="step-icon">
                             <i class="fas fa-map-marked-alt"></i>
                         </div>
                         <h4>Tour Selection</h4>
                         <p>Choose your preferred tours</p>
                     </div>
-                    <div class="step">
+                    <div class="step" data-step="3">
                         <div class="step-icon">
                             <i class="fas fa-calendar-check"></i>
                         </div>
                         <h4>Date & Time</h4>
                         <p>Select your travel dates</p>
                     </div>
-                    <div class="step">
+                    <div class="step" data-step="4">
                         <div class="step-icon">
                             <i class="fas fa-check-circle"></i>
                         </div>
@@ -1854,68 +1962,135 @@
                 
                 <div class="booking-form" data-aos="fade-up">
                     <form id="bookingForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" required>
+                        <!-- Step 1: Personal Details -->
+                        <div class="form-step active" id="step-1">
+                            <h3>Your Personal Details</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" required>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <input type="text" id="country" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="tour-type">Tour Type</label>
-                                <select id="tour-type" required>
-                                    <option value="">Select tour type</option>
-                                    <option value="half-day">Half-Day Tour</option>
-                                    <option value="full-day">Full-Day Tour</option>
-                                    <option value="multi-day">Multi-Day Package</option>
-                                    <option value="safari">Safari</option>
-                                    <option value="hotel">Hotel Booking</option>
-                                    <option value="transfer">Airport Transfer</option>
-                                    <option value="custom">Custom Package</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="tour">Select Specific Tour</label>
-                                <select id="tour">
-                                    <option value="">Select a tour (optional)</option>
-                                    <option value="stone_town">Stone Town Walking Tour - $15</option>
-                                    <option value="prison_island">Prison Island Trip - $20</option>
-                                    <option value="spice_farm">Spice Farm Tour - $13</option>
-                                    <option value="safari_blue">Safari Blue Trip - $40</option>
-                                    <option value="dolphin_tour">Kizimkazi Dolphins Tour - $25</option>
-                                    <option value="airport_transfer">Airport Transfer - $25</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="guests">Number of Guests</label>
-                                <input type="number" id="guests" min="1" required>
+                            <div class="form-navigation">
+                                <div></div> <!-- Empty div for spacing -->
+                                <button type="button" class="btn next-step" data-next="2">Next</button>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="date">Preferred Date</label>
-                                <input type="date" id="date" required>
+                        
+                        <!-- Step 2: Tour Selection -->
+                        <div class="form-step" id="step-2">
+                            <h3>Select Your Tour</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="tour-type">Tour Type</label>
+                                    <select id="tour-type" required>
+                                        <option value="">Select tour type</option>
+                                        <option value="half-day">Half-Day Tour</option>
+                                        <option value="full-day">Full-Day Tour</option>
+                                        <option value="multi-day">Multi-Day Package</option>
+                                        <option value="safari">Safari</option>
+                                        <option value="hotel">Hotel Booking</option>
+                                        <option value="transfer">Airport Transfer</option>
+                                        <option value="custom">Custom Package</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tour">Select Specific Tour</label>
+                                    <select id="tour">
+                                        <option value="">Select a tour (optional)</option>
+                                        <option value="stone_town">Stone Town Walking Tour - $15</option>
+                                        <option value="prison_island">Prison Island Trip - $20</option>
+                                        <option value="spice_farm">Spice Farm Tour - $13</option>
+                                        <option value="safari_blue">Safari Blue Trip - $40</option>
+                                        <option value="dolphin_tour">Kizimkazi Dolphins Tour - $25</option>
+                                        <option value="airport_transfer">Airport Transfer - $25</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="duration">Duration (days)</label>
-                                <input type="number" id="duration" min="1" value="1">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="guests">Number of Guests</label>
+                                    <input type="number" id="guests" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="children">Children (under 12)</label>
+                                    <input type="number" id="children" min="0" value="0">
+                                </div>
+                            </div>
+                            <div class="form-navigation">
+                                <button type="button" class="btn btn-outline prev-step" data-prev="1">Previous</button>
+                                <button type="button" class="btn next-step" data-next="3">Next</button>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Special Requests</label>
-                            <textarea id="message" rows="4" placeholder="Any dietary restrictions, accessibility needs, or special requests..."></textarea>
+                        
+                        <!-- Step 3: Date & Time -->
+                        <div class="form-step" id="step-3">
+                            <h3>Select Date & Time</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="date">Preferred Date</label>
+                                    <input type="date" id="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="duration">Duration (days)</label>
+                                    <input type="number" id="duration" min="1" value="1">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="start-time">Preferred Start Time</label>
+                                    <input type="time" id="start-time">
+                                </div>
+                                <div class="form-group">
+                                    <label for="accommodation">Accommodation Type</label>
+                                    <select id="accommodation">
+                                        <option value="">Not applicable</option>
+                                        <option value="budget">Budget</option>
+                                        <option value="standard">Standard</option>
+                                        <option value="luxury">Luxury</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-navigation">
+                                <button type="button" class="btn btn-outline prev-step" data-prev="2">Previous</button>
+                                <button type="button" class="btn next-step" data-next="4">Next</button>
+                            </div>
                         </div>
-                        <button type="submit" class="btn">Submit Booking Request</button>
+                        
+                        <!-- Step 4: Confirmation -->
+                        <div class="form-step" id="step-4">
+                            <h3>Review & Confirm</h3>
+                            <div id="booking-summary" style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                                <h4>Booking Summary</h4>
+                                <p>Your booking details will appear here once you complete the previous steps.</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Special Requests</label>
+                                <textarea id="message" rows="4" placeholder="Any dietary restrictions, accessibility needs, or special requests..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="terms" required>
+                                <label for="terms">I agree to the <a href="#">terms and conditions</a></label>
+                            </div>
+                            <div class="form-navigation">
+                                <button type="button" class="btn btn-outline prev-step" data-prev="3">Previous</button>
+                                <button type="submit" class="btn">Submit Booking Request</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </section>
@@ -2192,6 +2367,93 @@
             });
         });
         
+        // Multi-step Booking Form
+        const steps = document.querySelectorAll('.step');
+        const formSteps = document.querySelectorAll('.form-step');
+        const nextButtons = document.querySelectorAll('.next-step');
+        const prevButtons = document.querySelectorAll('.prev-step');
+        
+        // Next step functionality
+        nextButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const currentStep = document.querySelector('.form-step.active');
+                const nextStepId = button.getAttribute('data-next');
+                const nextStep = document.getElementById(`step-${nextStepId}`);
+                
+                // Validate current step before proceeding
+                if (validateStep(currentStep)) {
+                    // Update active step in navigation
+                    steps.forEach(step => step.classList.remove('active'));
+                    document.querySelector(`.step[data-step="${nextStepId}"]`).classList.add('active');
+                    
+                    // Update active form step
+                    formSteps.forEach(step => step.classList.remove('active'));
+                    nextStep.classList.add('active');
+                    
+                    // Update booking summary on last step
+                    if (nextStepId === '4') {
+                        updateBookingSummary();
+                    }
+                }
+            });
+        });
+        
+        // Previous step functionality
+        prevButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const prevStepId = button.getAttribute('data-prev');
+                const prevStep = document.getElementById(`step-${prevStepId}`);
+                
+                // Update active step in navigation
+                steps.forEach(step => step.classList.remove('active'));
+                document.querySelector(`.step[data-step="${prevStepId}"]`).classList.add('active');
+                
+                // Update active form step
+                formSteps.forEach(step => step.classList.remove('active'));
+                prevStep.classList.add('active');
+            });
+        });
+        
+        // Step validation
+        function validateStep(step) {
+            const inputs = step.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.value) {
+                    input.style.borderColor = 'red';
+                    isValid = false;
+                } else {
+                    input.style.borderColor = '#ddd';
+                }
+            });
+            
+            return isValid;
+        }
+        
+        // Update booking summary
+        function updateBookingSummary() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const tourType = document.getElementById('tour-type').value;
+            const tour = document.getElementById('tour').value ? 
+                document.getElementById('tour').options[document.getElementById('tour').selectedIndex].text : 
+                'Not specified';
+            const guests = document.getElementById('guests').value;
+            const date = document.getElementById('date').value;
+            
+            const summaryHTML = `
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Tour Type:</strong> ${tourType}</p>
+                <p><strong>Selected Tour:</strong> ${tour}</p>
+                <p><strong>Number of Guests:</strong> ${guests}</p>
+                <p><strong>Preferred Date:</strong> ${date}</p>
+            `;
+            
+            document.getElementById('booking-summary').innerHTML = `<h4>Booking Summary</h4>${summaryHTML}`;
+        }
+        
         // Booking Form Submission
         const bookingForm = document.getElementById('bookingForm');
         const successModal = document.getElementById('successModal');
@@ -2221,6 +2483,12 @@
             
             // Reset form
             bookingForm.reset();
+            
+            // Reset to first step
+            formSteps.forEach(step => step.classList.remove('active'));
+            document.getElementById('step-1').classList.add('active');
+            steps.forEach(step => step.classList.remove('active'));
+            document.querySelector('.step[data-step="1"]').classList.add('active');
         });
         
         // Contact Form Submission
@@ -2289,6 +2557,113 @@
             } else {
                 header.style.padding = '0';
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        
+        // Sample tour data for search
+        const tourData = [
+            { name: "Stone Town Walking Tour", page: "tours", price: "$15" },
+            { name: "Prison Island Tour", page: "tours", price: "$20" },
+            { name: "Spice Farm Tour", page: "tours", price: "$13" },
+            { name: "Safari Blue Trip", page: "tours", price: "$40" },
+            { name: "Mikumi Day Trip Safari", page: "safaris", price: "$475" },
+            { name: "Selous Day Trip Safari", page: "safaris", price: "$475" },
+            { name: "Airport Transfer", page: "transfers", price: "$25" },
+            { name: "Royal Zanzibar Beach Resort", page: "hotels", price: "Check Availability" },
+            { name: "2 Day Tours Package", page: "packages", price: "$75" },
+            { name: "3 Day Tours Package", page: "packages", price: "$215" }
+        ];
+        
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            searchResults.innerHTML = '';
+            
+            if (query.length > 2) {
+                const results = tourData.filter(tour => 
+                    tour.name.toLowerCase().includes(query)
+                );
+                
+                if (results.length > 0) {
+                    searchResults.classList.add('active');
+                    results.forEach(result => {
+                        const resultItem = document.createElement('div');
+                        resultItem.className = 'search-result-item';
+                        resultItem.innerHTML = `
+                            <h4>${result.name}</h4>
+                            <p>${result.price} • ${result.page.charAt(0).toUpperCase() + result.page.slice(1)}</p>
+                        `;
+                        resultItem.addEventListener('click', () => {
+                            // Navigate to the appropriate page
+                            pages.forEach(page => page.classList.remove('active'));
+                            document.getElementById(result.page).classList.add('active');
+                            searchResults.classList.remove('active');
+                            searchInput.value = '';
+                            window.scrollTo(0, 0);
+                        });
+                        searchResults.appendChild(resultItem);
+                    });
+                } else {
+                    searchResults.classList.add('active');
+                    searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
+                }
+            } else {
+                searchResults.classList.remove('active');
+            }
+        });
+        
+        // Close search results when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.remove('active');
+            }
+        });
+        
+        // Language Selector
+        const languageSelect = document.getElementById('languageSelect');
+        languageSelect.addEventListener('change', function() {
+            // In a real implementation, this would change the site language
+            alert(`Language changed to ${this.options[this.selectedIndex].text}. This would reload the page with translated content in a real implementation.`);
+        });
+        
+        // Lazy Loading for Images
+        document.addEventListener("DOMContentLoaded", function() {
+            var lazyImages = [].slice.call(document.querySelectorAll("img.lazy-load, .lazy-load"));
+            
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyElement = entry.target;
+                            
+                            if (lazyElement.tagName === 'IMG') {
+                                lazyElement.src = lazyElement.dataset.src;
+                            } else {
+                                // For div elements with background images
+                                lazyElement.style.backgroundImage = `url('${lazyElement.dataset.src}')`;
+                            }
+                            
+                            lazyElement.classList.remove("lazy-load");
+                            lazyImageObserver.unobserve(lazyElement);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            } else {
+                // Fallback for browsers that don't support IntersectionObserver
+                lazyImages.forEach(function(lazyImage) {
+                    if (lazyImage.tagName === 'IMG') {
+                        lazyImage.src = lazyImage.dataset.src;
+                    } else {
+                        lazyImage.style.backgroundImage = `url('${lazyImage.dataset.src}')`;
+                    }
+                });
             }
         });
     </script>
