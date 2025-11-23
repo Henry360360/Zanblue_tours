@@ -17,6 +17,8 @@
             --gray: #5f6368;
             --sand: #f5f1e6;
             --ocean: #0077be;
+            --safari-green: #2e7d32;
+            --safari-brown: #8d6e63;
         }
         
         * {
@@ -191,6 +193,14 @@
             box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
         }
         
+        .btn-safari {
+            background-color: var(--safari-green);
+        }
+        
+        .btn-safari:hover {
+            background-color: #1b5e20;
+        }
+        
         .btn-primary {
             background-color: var(--primary);
         }
@@ -311,6 +321,166 @@
             color: var(--secondary);
             font-size: 1.2rem;
             margin-bottom: 15px;
+        }
+        
+        /* Safari Category Navigation */
+        .safari-category-nav {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .category-btn {
+            padding: 12px 25px;
+            background: white;
+            border: 2px solid var(--safari-green);
+            color: var(--safari-green);
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: var(--safari-green);
+            color: white;
+        }
+        
+        /* Safari Cards */
+        .safari-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .safari-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .safari-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .safari-card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .safari-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .safari-content {
+            padding: 20px;
+        }
+        
+        .safari-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .safari-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .safari-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .safari-feature {
+            background: var(--sand);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--safari-brown);
+        }
+        
+        .safari-price {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Hotel Cards */
+        .hotel-card {
+            display: flex;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .hotel-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .hotel-image {
+            width: 40%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hotel-details {
+            padding: 20px;
+            width: 60%;
+        }
+        
+        /* Transfer Cards */
+        .transfer-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .transfer-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .transfer-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .transfer-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-right: 15px;
+        }
+        
+        .transfer-price {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.3rem;
         }
         
         /* Booking Form */
@@ -438,153 +608,101 @@
             transform: rotate(180deg);
         }
         
-        /* Hotel Cards */
-        .hotel-card {
-            display: flex;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .hotel-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .hotel-image {
-            width: 40%;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .hotel-details {
-            padding: 20px;
-            width: 60%;
-        }
-        
-        /* Transfer Cards */
-        .transfer-card {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .transfer-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .transfer-header {
-            display: flex;
-            justify-content: between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .transfer-icon {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-right: 15px;
-        }
-        
-        .transfer-price {
-            font-weight: 700;
-            color: var(--secondary);
-            font-size: 1.3rem;
-        }
-        
-        /* WhatsApp Chat */
-        .whatsapp-chat {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            transition: transform 0.3s;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-        
-        .whatsapp-chat:hover {
-            transform: scale(1.1);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-            margin-top: 60px;
-        }
-        
-        .footer-content {
+        /* Contact Info Cards */
+        .contact-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-bottom: 40px;
+            margin: 40px 0;
         }
         
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--secondary);
+        .contact-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
         
-        .footer-column ul {
-            list-style: none;
+        .contact-card:hover {
+            transform: translateY(-5px);
         }
         
-        .footer-column ul li {
-            margin-bottom: 10px;
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Process Section */
+        .process-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--ocean) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .process-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
+            gap: 40px;
         }
         
-        .footer-column ul li i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
+        .process-image {
+            max-width: 600px;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
-        .footer-column ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s;
+        .process-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         
-        .footer-column ul li a:hover {
+        .process-content {
+            max-width: 700px;
+        }
+        
+        .process-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .process-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .process-step {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .process-step i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
             color: var(--secondary);
         }
         
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #444;
-            color: #ddd;
+        .process-step h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
         }
         
         /* Testimonials */
@@ -692,74 +810,46 @@
             font-size: 0.9rem;
         }
         
-        /* Process Section */
-        .process-section {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--ocean) 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .process-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .process-image {
-            max-width: 600px;
-            width: 100%;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .process-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .process-content {
-            max-width: 700px;
-        }
-        
-        .process-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .process-content p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-        
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+        /* Safari Details Section */
+        .safari-details {
+            background-color: var(--sand);
+            padding: 60px 0;
             margin-top: 40px;
         }
         
-        .process-step {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
+        .detail-card {
+            background: white;
             border-radius: 10px;
-            backdrop-filter: blur(10px);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
-        .process-step i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--secondary);
+        .detail-card h3 {
+            color: var(--safari-green);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
         }
         
-        .process-step h3 {
-            margin-bottom: 10px;
-            font-size: 1.3rem;
+        .detail-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .detail-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .detail-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-list li i {
+            color: var(--accent);
+            margin-right: 10px;
         }
         
         /* Booking Success Modal */
@@ -815,31 +905,94 @@
             color: var(--gray);
         }
         
-        /* Contact Info Cards */
-        .contact-cards {
+        /* WhatsApp Chat */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: transform 0.3s;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        .whatsapp-chat:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin: 40px 0;
+            margin-bottom: 40px;
         }
         
-        .contact-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-column ul li i {
+            margin-right: 10px;
+            width: 20px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
         }
         
-        .contact-card:hover {
-            transform: translateY(-5px);
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
         }
         
-        .contact-card i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #ddd;
         }
         
         /* Responsive Styles */
@@ -911,6 +1064,20 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 10px;
+            }
+            
+            .safari-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .safari-category-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .category-btn {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -1361,117 +1528,223 @@
         <div class="container">
             <section class="section">
                 <div class="section-title" data-aos="fade-up">
-                    <h2>SAFARI DAY TRIPS FROM ZANZIBAR</h2>
-                    <p>Experience the best of Tanzania's wildlife</p>
+                    <h2>SAFARI PACKAGES FROM ZANZIBAR</h2>
+                    <p>Choose from our selection of unforgettable safari experiences in Tanzania's most famous national parks</p>
                 </div>
 
-                <h3 data-aos="fade-up">Day Trip Safaris</h3>
-                <table class="pricing-table" data-aos="fade-up">
-                    <tr>
-                        <th>Safari</th>
-                        <th>Duration</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td>Mikumi Day Trip Safari From Zanzibar</td>
-                        <td>1 day</td>
-                        <td>$475</td>
-                        <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
-                    </tr>
-                    <tr>
-                        <td>Selous Day Trip Safari From Zanzibar</td>
-                        <td>1 day</td>
-                        <td>$475</td>
-                        <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
-                    </tr>
-                </table>
+                <!-- Safari Category Navigation -->
+                <div class="safari-category-nav" data-aos="fade-up">
+                    <button class="category-btn active" data-category="day-trip">Day Trip Safaris</button>
+                    <button class="category-btn" data-category="multi-day">Multi-Day Safaris</button>
+                    <button class="category-btn" data-category="tanzania">Tanzania Packages</button>
+                </div>
 
-                <h3 data-aos="fade-up">Multi-Day Safaris</h3>
-                <table class="pricing-table" data-aos="fade-up">
-                    <tr>
-                        <th>Safari</th>
-                        <th>Duration</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td>2 Days 1 Night Mikumi Safari</td>
-                        <td>2 days</td>
-                        <td>$895</td>
-                        <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
-                    </tr>
-                    <tr>
-                        <td>2 Days 1 Night Selous Safari</td>
-                        <td>2 days</td>
-                        <td>$920</td>
-                        <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
-                    </tr>
-                    <tr>
-                        <td>2 Days 1 Night Serengeti Safari</td>
-                        <td>2 days</td>
-                        <td>$1676</td>
-                        <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
-                    </tr>
-                    <tr>
-                        <td>3 Days 2 Nights Serengeti Safari</td>
-                        <td>3 days</td>
-                        <td>$2048</td>
-                        <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
-                    </tr>
-                    <tr>
-                        <td>3 Days 2 Nights Serengeti & Balloon Safari</td>
-                        <td>3 days</td>
-                        <td>$2793</td>
-                        <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
-                    </tr>
-                </table>
+                <!-- Day Trip Safaris -->
+                <div class="safari-category active" id="day-trip">
+                    <h3 data-aos="fade-up">Day Trip Safaris from Zanzibar</h3>
+                    <p data-aos="fade-up" style="margin-bottom: 30px; text-align: center;">Perfect for travelers with limited time who want to experience Tanzania's wildlife without overnight stays.</p>
+                    
+                    <div class="safari-cards">
+                        <div class="safari-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="safari-card-badge">Most Popular</div>
+                            <div class="safari-img" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="safari-content">
+                                <h3>Mikumi National Park Day Trip</h3>
+                                <p>Experience the "mini-Serengeti" with its abundant wildlife including lions, elephants, giraffes, and zebras.</p>
+                                <div class="safari-features">
+                                    <span class="safari-feature"><i class="fas fa-clock"></i> 1 Day</span>
+                                    <span class="safari-feature"><i class="fas fa-users"></i> Small Groups</span>
+                                    <span class="safari-feature"><i class="fas fa-utensils"></i> Lunch Included</span>
+                                </div>
+                                <div class="safari-price">$475 per person</div>
+                                <a href="#" class="btn nav-link" data-page="booking">Book Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="safari-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="safari-img" style="background-image: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="safari-content">
+                                <h3>Selous Game Reserve Day Trip</h3>
+                                <p>Explore Africa's largest game reserve with boat safaris and incredible diversity of wildlife.</p>
+                                <div class="safari-features">
+                                    <span class="safari-feature"><i class="fas fa-clock"></i> 1 Day</span>
+                                    <span class="safari-feature"><i class="fas fa-ship"></i> Boat Safari</span>
+                                    <span class="safari-feature"><i class="fas fa-utensils"></i> Lunch Included</span>
+                                </div>
+                                <div class="safari-price">$475 per person</div>
+                                <a href="#" class="btn nav-link" data-page="booking">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 data-aos="fade-up" style="margin-top: 60px;">Day Trip Safari Pricing</h3>
+                    <table class="pricing-table" data-aos="fade-up">
+                        <tr>
+                            <th>Safari</th>
+                            <th>Duration</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>Mikumi Day Trip Safari From Zanzibar</td>
+                            <td>1 day</td>
+                            <td>$475</td>
+                            <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
+                        </tr>
+                        <tr>
+                            <td>Selous Day Trip Safari From Zanzibar</td>
+                            <td>1 day</td>
+                            <td>$475</td>
+                            <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
+                        </tr>
+                    </table>
+                </div>
 
-                <h3 data-aos="fade-up">Tanzania Safari Packages</h3>
-                <table class="pricing-table" data-aos="fade-up">
-                    <tr>
-                        <th>Package</th>
-                        <th>Duration</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td>4 Days 3 Night Tanzania Safari Package</td>
-                        <td>4 days</td>
-                        <td>$1550</td>
-                        <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
-                    </tr>
-                    <tr>
-                        <td>5 Days 4 Nights Tanzania Safari Package</td>
-                        <td>5 days</td>
-                        <td>$1770</td>
-                        <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
-                    </tr>
-                    <tr>
-                        <td>6 Days 5 Nights Tanzania Safari Package</td>
-                        <td>6 days</td>
-                        <td>$2040</td>
-                        <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
-                    </tr>
-                    <tr>
-                        <td>7 Days 6 Nights Tanzania Safari Package</td>
-                        <td>7 days</td>
-                        <td>$2480</td>
-                        <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
-                    </tr>
-                    <tr>
-                        <td>7 Days 6 Nights Tanzania Safari & Zanzibar</td>
-                        <td>7 days</td>
-                        <td>$1750</td>
-                        <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
-                    </tr>
-                    <tr>
-                        <td>8 Days 7 Nights Tanzania Safari Package</td>
-                        <td>8 days</td>
-                        <td>$2600</td>
-                        <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
-                    </tr>
-                </table>
+                <!-- Multi-Day Safaris -->
+                <div class="safari-category" id="multi-day" style="display: none;">
+                    <h3 data-aos="fade-up">Multi-Day Safari Options</h3>
+                    <p data-aos="fade-up" style="margin-bottom: 30px; text-align: center;">Immerse yourself in the African wilderness with our overnight safari experiences.</p>
+                    
+                    <div class="safari-cards">
+                        <div class="safari-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="safari-card-badge">Best Value</div>
+                            <div class="safari-img" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="safari-content">
+                                <h3>2 Days / 1 Night Mikumi Safari</h3>
+                                <p>Extended safari experience with overnight stay in the heart of Mikumi National Park.</p>
+                                <div class="safari-features">
+                                    <span class="safari-feature"><i class="fas fa-clock"></i> 2 Days</span>
+                                    <span class="safari-feature"><i class="fas fa-moon"></i> 1 Night</span>
+                                    <span class="safari-feature"><i class="fas fa-campground"></i> Lodge Stay</span>
+                                </div>
+                                <div class="safari-price">$895 per person</div>
+                                <a href="#" class="btn nav-link" data-page="booking">Book Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="safari-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="safari-img" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="safari-content">
+                                <h3>2 Days / 1 Night Selous Safari</h3>
+                                <p>Boat safaris, walking safaris and game drives in Africa's largest game reserve.</p>
+                                <div class="safari-features">
+                                    <span class="safari-feature"><i class="fas fa-clock"></i> 2 Days</span>
+                                    <span class="safari-feature"><i class="fas fa-moon"></i> 1 Night</span>
+                                    <span class="safari-feature"><i class="fas fa-ship"></i> Boat Safari</span>
+                                </div>
+                                <div class="safari-price">$920 per person</div>
+                                <a href="#" class="btn nav-link" data-page="booking">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 data-aos="fade-up" style="margin-top: 60px;">Multi-Day Safari Pricing</h3>
+                    <table class="pricing-table" data-aos="fade-up">
+                        <tr>
+                            <th>Safari Package</th>
+                            <th>Duration</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>2 Days 1 Night Mikumi Safari</td>
+                            <td>2 days</td>
+                            <td>$895</td>
+                            <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
+                        </tr>
+                        <tr>
+                            <td>2 Days 1 Night Selous Safari</td>
+                            <td>2 days</td>
+                            <td>$920</td>
+                            <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
+                        </tr>
+                        <tr>
+                            <td>2 Days 1 Night Serengeti Safari</td>
+                            <td>2 days</td>
+                            <td>$1,676</td>
+                            <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
+                        </tr>
+                        <tr>
+                            <td>3 Days 2 Nights Serengeti Safari</td>
+                            <td>3 days</td>
+                            <td>$2,048</td>
+                            <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Tanzania Safari Packages -->
+                <div class="safari-category" id="tanzania" style="display: none;">
+                    <h3 data-aos="fade-up">Tanzania Safari Packages</h3>
+                    <p data-aos="fade-up" style="margin-bottom: 30px; text-align: center;">Comprehensive safari experiences combining multiple national parks for the ultimate Tanzanian adventure.</p>
+                    
+                    <div class="safari-cards">
+                        <div class="safari-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="safari-card-badge">Popular</div>
+                            <div class="safari-img" style="background-image: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="safari-content">
+                                <h3>4 Days / 3 Nights Tanzania Safari</h3>
+                                <p>Explore multiple parks including Serengeti and Ngorongoro Crater on this classic safari.</p>
+                                <div class="safari-features">
+                                    <span class="safari-feature"><i class="fas fa-clock"></i> 4 Days</span>
+                                    <span class="safari-feature"><i class="fas fa-moon"></i> 3 Nights</span>
+                                    <span class="safari-feature"><i class="fas fa-map-marked-alt"></i> 2 Parks</span>
+                                </div>
+                                <div class="safari-price">$1,550 per person</div>
+                                <a href="#" class="btn nav-link" data-page="booking">Book Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="safari-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="safari-img" style="background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="safari-content">
+                                <h3>5 Days / 4 Nights Tanzania Safari</h3>
+                                <p>Extended safari covering Serengeti, Ngorongoro, and Tarangire National Parks.</p>
+                                <div class="safari-features">
+                                    <span class="safari-feature"><i class="fas fa-clock"></i> 5 Days</span>
+                                    <span class="safari-feature"><i class="fas fa-moon"></i> 4 Nights</span>
+                                    <span class="safari-feature"><i class="fas fa-map-marked-alt"></i> 3 Parks</span>
+                                </div>
+                                <div class="safari-price">$1,770 per person</div>
+                                <a href="#" class="btn nav-link" data-page="booking">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 data-aos="fade-up" style="margin-top: 60px;">Tanzania Safari Package Pricing</h3>
+                    <table class="pricing-table" data-aos="fade-up">
+                        <tr>
+                            <th>Package</th>
+                            <th>Duration</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>4 Days 3 Night Tanzania Safari Package</td>
+                            <td>4 days</td>
+                            <td>$1,550</td>
+                            <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
+                        </tr>
+                        <tr>
+                            <td>5 Days 4 Nights Tanzania Safari Package</td>
+                            <td>5 days</td>
+                            <td>$1,770</td>
+                            <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
+                        </tr>
+                        <tr>
+                            <td>6 Days 5 Nights Tanzania Safari Package</td>
+                            <td>6 days</td>
+                            <td>$2,040</td>
+                            <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
+                        </tr>
+                        <tr>
+                            <td>7 Days 6 Nights Tanzania Safari Package</td>
+                            <td>7 days</td>
+                            <td>$2,480</td>
+                            <td><a href="#" class="btn nav-link" data-page="booking">Book Now</a></td>
+                        </tr>
+                    </table>
+                </div>
             </section>
         </div>
     </div>
@@ -1533,23 +1806,6 @@
                         <div class="transfer-price">$35</div>
                     </div>
                     <p><strong>Inclusions:</strong> Door-to-door service, luggage assistance, air-conditioned vehicle</p>
-                    <a href="#" class="btn nav-link" data-page="booking" style="margin-top: 15px;">Book Transfer</a>
-                </div>
-
-                <div class="transfer-card" data-aos="fade-up">
-                    <div class="transfer-header">
-                        <div style="display: flex; align-items: center;">
-                            <div class="transfer-icon">
-                                <i class="fas fa-bus"></i>
-                            </div>
-                            <div>
-                                <h3>Group Transfer Service</h3>
-                                <p>Cost-effective transfer solution for groups and families</p>
-                            </div>
-                        </div>
-                        <div class="transfer-price">$60</div>
-                    </div>
-                    <p><strong>Inclusions:</strong> Spacious vehicle (up to 8 passengers), all luggage handling, hotel pickup and dropoff</p>
                     <a href="#" class="btn nav-link" data-page="booking" style="margin-top: 15px;">Book Transfer</a>
                 </div>
             </section>
@@ -1723,26 +1979,6 @@
                         </div>
                         <div class="faq-answer">
                             Our tours typically include transportation, professional guide services, entrance fees to attractions, and sometimes meals as specified in the tour description. Water and refreshments are usually provided. Specific inclusions vary by tour, so please check the detailed description of each tour for exact information.
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-aos="fade-up">
-                        <div class="faq-question">
-                            Do you provide airport transfers?
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            Yes, we provide reliable airport transfer services from Zanzibar Airport to your hotel and vice versa. Our transfers include professional drivers, comfortable vehicles, and meet-and-greet service at the airport. You can book transfers separately or as part of a package.
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-aos="fade-up">
-                        <div class="faq-question">
-                            What should I bring for a Zanzibar tour?
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            We recommend bringing sunscreen, hat, sunglasses, comfortable walking shoes, swimwear, camera, and some cash for souvenirs. For specific tours like snorkeling or diving, we provide all necessary equipment, but you're welcome to bring your own if preferred.
                         </div>
                     </div>
                 </div>
@@ -1930,6 +2166,29 @@
                 
                 // Scroll to top
                 window.scrollTo(0, 0);
+            });
+        });
+        
+        // Safari Category Navigation
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const safariCategories = document.querySelectorAll('.safari-category');
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.getAttribute('data-category');
+                
+                // Remove active class from all buttons
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Hide all categories
+                safariCategories.forEach(cat => {
+                    cat.style.display = 'none';
+                });
+                
+                // Show selected category
+                document.getElementById(category).style.display = 'block';
             });
         });
         
